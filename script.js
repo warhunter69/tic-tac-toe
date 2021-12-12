@@ -31,12 +31,13 @@ return {sayName, doSomethingNerdy}
 document.addEventListener('DOMContentLoaded', function() {
     // let game_board_div = document.querySelector('#gameBoard');
     // console.log(game_board_div)
-    // for(let i = 0 ; i<9 ; i++){
+     for(let i = 0 ; i<9 ; i++){
+       let button = document.querySelector(`#B${i}`)
     //     let board = document.createElement('BUTTON');
     //     board.id = `board${i}`;
     //     console.log(board)
     //     game_board_div.append(board);
-    // }
+     }
 });
 const gameBoard = (() => {
     //game board module
@@ -54,3 +55,7 @@ const player = (name) =>{
 }
 p1 = player("p1");
 p2 = player("p2");
+
+function mark(){
+
+}
