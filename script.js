@@ -22,13 +22,22 @@ const doSomethingNerdy = () => console.log('nerd stuff')
 return {sayName, doSomethingNerdy}
 }
 
-const jeff = Nerd('jeff')
+//const jeff = Nerd('jeff')
 
-jeff.sayName() //my name is jeff
-jeff.doSomethingNerdy() // nerd stuff
+//jeff.sayName() //my name is jeff
+//jeff.doSomethingNerdy() // nerd stuff
 
 //////////////////////////////////////////////////////////////////////////////////////////
-
+document.addEventListener('DOMContentLoaded', function() {
+    // let game_board_div = document.querySelector('#gameBoard');
+    // console.log(game_board_div)
+    // for(let i = 0 ; i<9 ; i++){
+    //     let board = document.createElement('BUTTON');
+    //     board.id = `board${i}`;
+    //     console.log(board)
+    //     game_board_div.append(board);
+    // }
+});
 const gameBoard = (() => {
     //game board module
     let game_board = {};
