@@ -42,6 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 const gameBoard = (() => {
     //game board module
+    
     let game_board = {};
     
     return {
@@ -49,8 +50,9 @@ const gameBoard = (() => {
       
     };
   })();
-const playGame = (()=>{
-  const p1 = player()
+const playGame = ((p1Name,p2Name,gameBoard)=>{
+  const p1 = player(p1Name,"X");
+  const p2 = player(p2Name,"O");
   // manages game
 })();
 const player = (name,sign) =>{
@@ -58,8 +60,6 @@ const player = (name,sign) =>{
     const marka = sign;
     return {sayName,marka}
 }
-p1 = player("p1","X");
-p2 = player("p2","O");
 
 function mark(Bid,sign){
   button = document.querySelector(`#${Bid}`);
