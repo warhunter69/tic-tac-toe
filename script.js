@@ -24,12 +24,34 @@ const gameBoard = (() => {
 
 const player = (name,sign) =>{
     const sayName = () => console.log(`my name is ${name} mark ${ marka }`);
+    const playerName = name;
     const marka = sign;
     const board = [];
-    const checkWin = () =>{
+    const checkVictory = () =>{
       //check if player won
+      if(board.includes("B0") && board.includes("B1") && board.includes("B2")){
+        //win
+        return true;
+      }else if(board.includes("B3") && board.includes("B4") && board.includes("B5")){
+        return true;
+      }else if(board.includes("B6") && board.includes("B7") && board.includes("B8")){
+        return true;
+      }else if(board.includes("B0") && board.includes("B3") && board.includes("B6")){
+        return true;
+      }else if(board.includes("B1") && board.includes("B4") && board.includes("B7")){
+        return true;
+      }else if(board.includes("B2") && board.includes("B5") && board.includes("B8")){
+        return true;
+      }else if(board.includes("B0") && board.includes("B4") && board.includes("B8")){
+        return true;
+      }else if(board.includes("B2") && board.includes("B4") && board.includes("B6")){
+        return true;
+      }else{
+        //not yet
+        return false;
+      }
     }
-    return {sayName,marka,board}
+    return {sayName,marka,board,checkVictory,playerName}
 }
 
 
@@ -45,31 +67,41 @@ const playGame = (()=>{
    
     
   };
+  const endGame = (name) =>{
+    for(let i = 0 ; i<9 ; i++){
+      let button = document.querySelector(`#B${i}`);
+      button.disabled = true;
+    }
+    let winner = document.querySelector(`#winner`);
+    winner.innerHTML = name;
+
+  };
   const markBoard =(Bid) =>{
     button = document.querySelector(`#${Bid}`);
     if(turn === 1){
       if(button.innerHTML === ""){
       button.innerHTML = p1.marka;
       turn=turn+1;
-      
       p1.board.push(button.id);
-      
-      
+      console.log(p1.checkVictory())
+      if(p1.checkVictory()){
+        endGame(p1.playerName)
+      }
       }
     }else if(turn === 2){
       if(button.innerHTML === ""){
         button.innerHTML = p2.marka;
         turn = turn - 1;
-        p1.board.push(button.id);
+        p2.board.push(button.id);
+        if(p2.checkVictory()){
+          endGame(p2.playerName)
+        }
       }
     }
 
   };
   
-  //const p1Turn = ()
-  //const p2Turn = ()
-
-  // manages game
+  
   return{test,x,markBoard}
 })();
 
