@@ -69,7 +69,7 @@ const playGame = (()=>{
   const p2 = player("p2Name","O");
   let x = 5;
   let turn = 1;
- 
+  const turn_div = document.querySelector("#turn");
   const test = ()=> { x = x +1;
     console.log(p1.marka,x);
    
@@ -77,31 +77,39 @@ const playGame = (()=>{
   };
   const checkVictory = (player) =>{
     //check if player won
-    
+    console.log(player.playerName,player.board)
     if(player.board.includes("B0") && player.board.includes("B1") && player.board.includes("B2")){
       //win
-     
+      p1.board = []
+      p2.board = []
       return true;
     }else if(player.board.includes("B3") && player.board.includes("B4") && player.board.includes("B5")){
-      
+      p1.board = []
+      p2.board = []
       return true;
     }else if(player.board.includes("B6") && player.board.includes("B7") && player.board.includes("B8")){
-      
+      p1.board = []
+      p2.board = []
       return true;
     }else if(player.board.includes("B0") && player.board.includes("B3") && player.board.includes("B6")){
-      
+      p1.board = []
+      p2.board = []
       return true;
     }else if(player.board.includes("B1") && player.board.includes("B4") && player.board.includes("B7")){
-     
+      p1.board = []
+      p2.board = []
       return true;
     }else if(player.board.includes("B2") && player.board.includes("B5") && player.board.includes("B8")){
-     
+      p1.board = []
+      p2.board = []
       return true;
     }else if(player.board.includes("B0") && player.board.includes("B4") && player.board.includes("B8")){
-      
+      p1.board = []
+      p2.board = []
       return true;
     }else if(player.board.includes("B2") && player.board.includes("B4") && player.board.includes("B6")){
-      
+      p1.board = []
+      p2.board = []
       return true;
     }else{
       //not yet
@@ -121,6 +129,7 @@ const playGame = (()=>{
   const markBoard =(Bid) =>{
     button = document.querySelector(`#${Bid}`);
     if(turn === 1){
+      
       if(!(p1.board.includes(button.id)) && !(p2.board.includes(button.id))){
       button.innerHTML = p1.marka;
       turn=turn+1;
@@ -128,7 +137,7 @@ const playGame = (()=>{
       if(checkVictory(p1)){
         endGame(p1.playerName);
        
-        turn =1;
+        
       }
       }
     }else if(turn === 2){
@@ -139,7 +148,7 @@ const playGame = (()=>{
         if(checkVictory(p2)){
           endGame(p2.playerName);
          
-          turn = 1;
+          
         }
       }
     }
