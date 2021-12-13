@@ -34,7 +34,8 @@ const playGame = (()=>{
   const p2 = player("p2Name","O");
   let x = 5;
   let turn = 1;
-  let board = {};
+  let board1 = [];
+  let board2 = [];
   const test = ()=> { x = x +1;
     console.log(p1.marka,x);
    
