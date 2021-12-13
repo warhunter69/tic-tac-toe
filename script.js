@@ -2,7 +2,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     // let game_board_div = document.querySelector('#gameBoard');
     // console.log(game_board_div)
-     for(let i = 0 ; i<9 ; i++){
+     for(let i = 1 ; i<10 ; i++){
        let button = document.querySelector(`#B${i}`);
        button.addEventListener('click',()=>{playGame.markBoard(`B${i}`)})
     //     let board = document.createElement('BUTTON');
