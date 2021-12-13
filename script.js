@@ -34,6 +34,7 @@ const playGame = (()=>{
   const p2 = player("p2Name","O");
   let x = 5;
   let turn = 1;
+  let board = {};
   const test = ()=> { x = x +1;
     console.log(p1.marka,x);
    
@@ -42,11 +43,15 @@ const playGame = (()=>{
   const markBoard =(Bid) =>{
     button = document.querySelector(`#${Bid}`);
     if(turn === 1){
+      if(button.innerHTML === ""){
       button.innerHTML = p1.marka;
       turn=turn+1;
+      }
     }else if(turn === 2){
-      button.innerHTML = p2.marka;
-      turn = turn - 1;
+      if(button.innerHTML === ""){
+        button.innerHTML = p2.marka;
+        turn = turn - 1;
+      }
     }
 
   };
