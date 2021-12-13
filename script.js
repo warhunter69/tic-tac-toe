@@ -2,14 +2,14 @@
 document.addEventListener('DOMContentLoaded', function() {
     // let game_board_div = document.querySelector('#gameBoard');
     // console.log(game_board_div)
-     for(let i = 0 ; i<9 ; i++){
-       let button = document.querySelector(`#B${i}`);
-       button.addEventListener('click',()=>{playGame.markBoard(`B${i}`)})
-    //     let board = document.createElement('BUTTON');
-    //     board.id = `board${i}`;
-    //     console.log(board)
-    //     game_board_div.append(board);
-     }
+    for(let i = 0 ; i<9 ; i++){
+      let button = document.querySelector(`#B${i}`);
+      button.addEventListener('click',()=>{playGame.markBoard(`B${i}`)});
+    
+
+    }
+    let a = document.querySelector('#restart');
+    a.addEventListener('click',()=>{playGame.restart()});
 });
 const gameBoard = (() => {
     //game board module
@@ -29,6 +29,7 @@ const player = (name,sign) =>{
     const board = [];
     const checkVictory = () =>{
       //check if player won
+      console.log(playerName,board)
       if(board.includes("B0") && board.includes("B1") && board.includes("B2")){
         //win
         return true;
@@ -77,15 +78,15 @@ const playGame = (()=>{
 
   };
   const markBoard =(Bid) =>{
+    console.log("a",p1.board)
     button = document.querySelector(`#${Bid}`);
     if(turn === 1){
       if(!(p1.board.includes(button.id)) && !(p2.board.includes(button.id))){
       button.innerHTML = p1.marka;
       turn=turn+1;
       p1.board.push(button.id);
-      console.log(p1.checkVictory())
       if(p1.checkVictory()){
-        endGame(p1.playerName)
+        endGame(p1.playerName);
       }
       }
     }else if(turn === 2){
@@ -94,21 +95,26 @@ const playGame = (()=>{
         turn = turn - 1;
         p2.board.push(button.id);
         if(p2.checkVictory()){
-          endGame(p2.playerName)
+          endGame(p2.playerName);
         }
       }
     }
 
   };
   
-  
-  return{test,x,markBoard}
+  const restart = () =>{
+    console.log("Re",p1.board)
+
+    p1.board = [];
+    p2.board = [];
+    console.log("Re",p1.board)
+    for(let i = 0 ; i<9 ; i++){
+      let button = document.querySelector(`#B${i}`);
+      button.innerHTML ='';
+      button.disabled = false;
+    }
+    let winner = document.querySelector(`#winner`);
+    winner.innerHTML = "";
+  }
+  return{markBoard,restart}
 })();
-
-//p1 = player("p1Name","X")
-//p2 = player("p2Name","O")
-playGame.test()
-playGame.test()
-playGame.test()
-
-console.log(playGame.x)
