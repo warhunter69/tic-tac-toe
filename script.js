@@ -32,7 +32,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // let game_board_div = document.querySelector('#gameBoard');
     // console.log(game_board_div)
      for(let i = 0 ; i<9 ; i++){
-       let button = document.querySelector(`#B${i}`)
+       let button = document.querySelector(`#B${i}`);
+       button.addEventListener('click',()=>{mark(`B${i}`,sign)})
     //     let board = document.createElement('BUTTON');
     //     board.id = `board${i}`;
     //     console.log(board)
@@ -48,14 +49,19 @@ const gameBoard = (() => {
       
     };
   })();
-
-const player = (name) =>{
-    const sayName = () => console.log(`my name is ${name}`);
-    return {sayName}
+const playGame = (()=>{
+  const p1 = player()
+  // manages game
+})();
+const player = (name,sign) =>{
+    const sayName = () => console.log(`my name is ${name} mark ${ mark }`);
+    const marka = sign;
+    return {sayName,marka}
 }
-p1 = player("p1");
-p2 = player("p2");
+p1 = player("p1","X");
+p2 = player("p2","O");
 
-function mark(){
-
+function mark(Bid,sign){
+  button = document.querySelector(`#${Bid}`);
+  button.innerHTML = sign;
 }
