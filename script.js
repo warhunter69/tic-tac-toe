@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // console.log(game_board_div)
      for(let i = 0 ; i<9 ; i++){
        let button = document.querySelector(`#B${i}`);
-       button.addEventListener('click',()=>{mark(`B${i}`,sign)})
+       button.addEventListener('click',()=>{playGame.markBoard(`B${i}`)})
     //     let board = document.createElement('BUTTON');
     //     board.id = `board${i}`;
     //     console.log(board)
@@ -28,21 +28,40 @@ const player = (name,sign) =>{
     return {sayName,marka}
 }
 
-function mark(Bid,sign){
-  button = document.querySelector(`#${Bid}`);
-  button.innerHTML = sign;
-}
+
 const playGame = (()=>{
-  const p1 = player("p1Name","X")
-  const p2 = player("p2Name","O")
-  const test = ()=> {console.log(p1.marka,p2.marka)};
+  const p1 = player("p1Name","X");
+  const p2 = player("p2Name","O");
+  let x = 5;
+  let turn = 1;
+  const test = ()=> { x = x +1;
+    console.log(p1.marka,x);
+   
+    
+  };
+  const markBoard =(Bid) =>{
+    button = document.querySelector(`#${Bid}`);
+    if(turn === 1){
+      button.innerHTML = p1.marka;
+      turn=turn+1;
+    }else if(turn === 2){
+      button.innerHTML = p2.marka;
+      turn = turn - 1;
+    }
+
+  };
+  
   //const p1Turn = ()
   //const p2Turn = ()
 
   // manages game
-  return{test,p1}
+  return{test,x,markBoard}
 })();
 
 //p1 = player("p1Name","X")
 //p2 = player("p2Name","O")
 playGame.test()
+playGame.test()
+playGame.test()
+
+console.log(playGame.x)
