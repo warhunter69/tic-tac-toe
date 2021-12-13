@@ -8,3 +8,6 @@
     padding: 0px;
     margin : 0px;
 }
+body,html{
+    min-height: 100vh;
+}

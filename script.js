@@ -70,6 +70,7 @@ const playGame = (()=>{
   let x = 5;
   let turn = 1;
   const turn_div = document.querySelector("#turn");
+  turn_div.innerHTML = `${p1.playerName} turn`;
   const test = ()=> { x = x +1;
     console.log(p1.marka,x);
    
@@ -133,6 +134,7 @@ const playGame = (()=>{
       if(!(p1.board.includes(button.id)) && !(p2.board.includes(button.id))){
       button.innerHTML = p1.marka;
       turn=turn+1;
+      turn_div.innerHTML = `${p2.playerName} turn`;
       p1.board.push(button.id);
       if(checkVictory(p1)){
         endGame(p1.playerName);
@@ -141,9 +143,11 @@ const playGame = (()=>{
       }
       }
     }else if(turn === 2){
+      
       if(!(p1.board.includes(button.id)) && !(p2.board.includes(button.id))){
         button.innerHTML = p2.marka;
         turn = turn - 1;
+        turn_div.innerHTML = `${p1.playerName} turn`;
         p2.board.push(button.id);
         if(checkVictory(p2)){
           endGame(p2.playerName);
