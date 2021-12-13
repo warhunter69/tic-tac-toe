@@ -1,33 +1,4 @@
-const calculator = (() => {
-    const add = (a, b) => a + b;
-    const sub = (a, b) => a - b;
-    const mul = (a, b) => a * b;
-    const div = (a, b) => a / b;
-    return {
-      add,
-      sub,
-      mul,
-      div,
-    };
-  })();
-const Person = (name) => {
-const sayName = () => console.log(`my name is ${name}`)
-return {sayName}
-}
 
-const Nerd = (name) => {
-// simply create a person and pull out the sayName function with destructuring assignment syntax!
-const {sayName} = Person(name)
-const doSomethingNerdy = () => console.log('nerd stuff')
-return {sayName, doSomethingNerdy}
-}
-
-//const jeff = Nerd('jeff')
-
-//jeff.sayName() //my name is jeff
-//jeff.doSomethingNerdy() // nerd stuff
-
-//////////////////////////////////////////////////////////////////////////////////////////
 document.addEventListener('DOMContentLoaded', function() {
     // let game_board_div = document.querySelector('#gameBoard');
     // console.log(game_board_div)
@@ -50,13 +21,9 @@ const gameBoard = (() => {
       
     };
   })();
-const playGame = ((p1Name,p2Name,gameBoard)=>{
-  const p1 = player(p1Name,"X");
-  const p2 = player(p2Name,"O");
-  // manages game
-})();
+
 const player = (name,sign) =>{
-    const sayName = () => console.log(`my name is ${name} mark ${ mark }`);
+    const sayName = () => console.log(`my name is ${name} mark ${ marka }`);
     const marka = sign;
     return {sayName,marka}
 }
@@ -65,3 +32,17 @@ function mark(Bid,sign){
   button = document.querySelector(`#${Bid}`);
   button.innerHTML = sign;
 }
+const playGame = (()=>{
+  const p1 = player("p1Name","X")
+  const p2 = player("p2Name","O")
+  const test = ()=> {console.log(p1.marka,p2.marka)};
+  //const p1Turn = ()
+  //const p2Turn = ()
+
+  // manages game
+  return{test,p1}
+})();
+
+//p1 = player("p1Name","X")
+//p2 = player("p2Name","O")
+playGame.test()
