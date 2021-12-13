@@ -79,7 +79,7 @@ const playGame = (()=>{
   const markBoard =(Bid) =>{
     button = document.querySelector(`#${Bid}`);
     if(turn === 1){
-      if(button.innerHTML === ""){
+      if(!(p1.board.includes(button.id)) && !(p2.board.includes(button.id))){
       button.innerHTML = p1.marka;
       turn=turn+1;
       p1.board.push(button.id);
@@ -89,7 +89,7 @@ const playGame = (()=>{
       }
       }
     }else if(turn === 2){
-      if(button.innerHTML === ""){
+      if(!(p1.board.includes(button.id)) && !(p2.board.includes(button.id))){
         button.innerHTML = p2.marka;
         turn = turn - 1;
         p2.board.push(button.id);
