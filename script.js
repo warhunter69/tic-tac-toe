@@ -2,7 +2,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     // let game_board_div = document.querySelector('#gameBoard');
     // console.log(game_board_div)
-     for(let i = 1 ; i<10 ; i++){
+     for(let i = 0 ; i<9 ; i++){
        let button = document.querySelector(`#B${i}`);
        button.addEventListener('click',()=>{playGame.markBoard(`B${i}`)})
     //     let board = document.createElement('BUTTON');
@@ -15,7 +15,7 @@ const gameBoard = (() => {
     //game board module
     
     let game_board = {};
-    
+    value = 0;
     return {
         game_board,
       
@@ -25,7 +25,11 @@ const gameBoard = (() => {
 const player = (name,sign) =>{
     const sayName = () => console.log(`my name is ${name} mark ${ marka }`);
     const marka = sign;
-    return {sayName,marka}
+    const board = [];
+    const checkWin = () =>{
+      //check if player won
+    }
+    return {sayName,marka,board}
 }
 
 
@@ -47,11 +51,16 @@ const playGame = (()=>{
       if(button.innerHTML === ""){
       button.innerHTML = p1.marka;
       turn=turn+1;
+      
+      p1.board.push(button.id);
+      
+      
       }
     }else if(turn === 2){
       if(button.innerHTML === ""){
         button.innerHTML = p2.marka;
         turn = turn - 1;
+        p1.board.push(button.id);
       }
     }
 
