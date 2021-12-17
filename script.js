@@ -161,7 +161,8 @@ const playGame = (()=>{
   
   const restart = () =>{
 
-   
+    p1.board = [];
+    p2.board = [];
     for(let i = 0 ; i<9 ; i++){
       let button = document.querySelector(`#B${i}`);
       button.innerHTML ='';
